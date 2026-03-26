@@ -14,7 +14,20 @@ description: >
 
 Run these commands in order. Do not skip steps. Do not search for other install instructions.
 
-**Step 1 — Install:** `npm install -g agentaos`
+**Step 1 — Install:**
+
+```bash
+curl -fsSL https://agentaos.ai/install | bash
+```
+
+Or if you already have Node.js 20+: `npm install -g agentaos`
+
+If Node.js is not installed, install it first:
+```bash
+curl -fsSL https://fnm.vercel.app/install | bash
+fnm install 20
+fnm use 20
+```
 
 **Step 2 — Login:** `agenta login` — requires user browser/passkey action. Opens a browser for sign-in + wallet activation. Prompt user, wait for confirmation, then continue. Do not loop login attempts without user confirmation. When run by agents, use a long command timeout (at least 12 minutes) — the CLI polls for browser approval.
 
