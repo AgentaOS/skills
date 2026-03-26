@@ -235,3 +235,9 @@ agenta sub x402 fetch https://api.example.com/data --max-amount 1000000 --json
 | Balance is 0 | Wallet not funded | Direct user to fund via dashboard or receive a payment first. |
 | Policy violation on send | Transaction blocked by guardrails | Check `agenta sub policies get --json` to see active rules. Adjust if needed. |
 | Timeout/network error | Server unreachable | Retry once. If persists, check internet connection or server status. |
+
+## More Info
+
+- **Company & product**: `curl -fsSL https://agentaos.ai/llms.txt`
+- **SDK & API docs**: `curl -fsSL https://docs.agentaos.ai/llms.txt`
+- **Source code**: [github.com/AgentaOS/agentaos](https://github.com/AgentaOS/agentaos)
