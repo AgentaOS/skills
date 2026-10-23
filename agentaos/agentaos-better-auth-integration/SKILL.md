@@ -1,6 +1,6 @@
 ---
-name: better-auth-integration
-description: AgentaOS plugin for Better Auth (@agentaos/better-auth) covering the agentaos() server plugin with an @agentaos/pay client, the products slug-to-linkId allowlist, successUrl, webhookSecret and onEvent, the agentaosClient() browser plugin, authClient.agentaos.checkout({ slug }), the three endpoints it mounts (POST /api/auth/agentaos/checkout, GET /api/auth/agentaos/subscriptions, POST /api/auth/agentaos/webhook), and idempotent, livemode-aware event handling. Use when an app signs users in with Better Auth and needs AgentaOS checkout, subscriptions or webhooks tied to the signed-in user; for other auth stacks use checkout-integration and webhook-integration.
+name: agentaos-better-auth-integration
+description: AgentaOS plugin for Better Auth (@agentaos/better-auth) covering the agentaos() server plugin with an @agentaos/pay client, the products slug-to-linkId allowlist, successUrl, webhookSecret and onEvent, the agentaosClient() browser plugin, authClient.agentaos.checkout({ slug }), the three endpoints it mounts (POST /api/auth/agentaos/checkout, GET /api/auth/agentaos/subscriptions, POST /api/auth/agentaos/webhook), and idempotent, livemode-aware event handling. Use when an app signs users in with Better Auth and needs AgentaOS checkout, subscriptions or webhooks tied to the signed-in user; for other auth stacks use agentaos-checkout-integration and agentaos-webhook-integration.
 ---
 
 # AgentaOS + Better Auth
@@ -13,7 +13,7 @@ description: AgentaOS plugin for Better Auth (@agentaos/better-auth) covering th
 - You want "Upgrade" to start a checkout for the signed-in user without writing checkout code
 - You want verified AgentaOS events delivered with the user id resolved
 
-If the app does not use Better Auth, use `checkout-integration` + `webhook-integration` (or `nextjs-integration`).
+If the app does not use Better Auth, use `agentaos-checkout-integration` + `agentaos-webhook-integration` (or `agentaos-nextjs-integration`).
 
 ---
 
@@ -135,11 +135,11 @@ Rules:
 - Renewals fire `checkout.session.completed` without your metadata, so `userId` may be absent on renewals. Match them by `metadata.subscriptionId`, which you stored on the first payment.
 - A free-trial start has `amount: "0"`. Treat it as "trial started".
 
-Full event list and payloads: see `webhook-integration`.
+Full event list and payloads: see `agentaos-webhook-integration`.
 
 ## Step 6: Show the user's subscriptions
 
-The plugin mounts `GET /api/auth/agentaos/subscriptions` for the signed-in user (verified email required). The docs do not document the response shape or a typed client method for it, so inspect the response in your app before relying on fields. For managing a subscription (cancel, plan change), call `@agentaos/pay` from your server with the stored subscription id; see `subscription-integration`.
+The plugin mounts `GET /api/auth/agentaos/subscriptions` for the signed-in user (verified email required). The docs do not document the response shape or a typed client method for it, so inspect the response in your app before relying on fields. For managing a subscription (cancel, plan change), call `@agentaos/pay` from your server with the stored subscription id; see `agentaos-subscription-integration`.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: refunds-and-disputes
+name: agentaos-refunds-and-disputes
 description: AgentaOS refunds and disputes as merchant of record, covering how a merchant requests a refund (Request refund on the sale page, or POST /gateway/transactions/{id}/refund-request), approval or decline by AgentaOS, full refunds only (no partial refunds), balance effects, the dispute and chargeback lifecycle, dispute.created and dispute.closed webhooks (no event for a lost dispute), sending evidence by replying to the dispute email, the reserve, what is not a refund (cancel, credits, void), and how to avoid disputes. Use when a buyer asks for money back, when handling dispute webhooks, revoking or restoring access after a chargeback, or explaining refund and dispute costs.
 ---
 
@@ -168,7 +168,7 @@ New accounts have a **Reserve** ("Safety hold on new accounts"): part of each sa
 
 ## Testing
 
-Pay a test checkout with `4000 0000 0000 0259`. It succeeds, then the buyer's bank disputes it, so you can see `dispute.created` and the dashboard states. See `testing-and-go-live`.
+Pay a test checkout with `4000 0000 0000 0259`. It succeeds, then the buyer's bank disputes it, so you can see `dispute.created` and the dashboard states. See `agentaos-testing-and-go-live`.
 
 ---
 
@@ -195,7 +195,7 @@ Pay a test checkout with `4000 0000 0000 0259`. It succeeds, then the buyer's ba
 
 ## Docs
 
-- Refunds, disputes and chargebacks: https://docs.agentaos.ai/mor/refunds-and-disputes
+- Refunds, disputes and chargebacks: https://docs.agentaos.ai/mor/agentaos-refunds-and-disputes
 - Dispute events: https://docs.agentaos.ai/webhooks/events#dispute-events
 - How merchant of record works: https://docs.agentaos.ai/mor/how-it-works
 - Payout statements: https://docs.agentaos.ai/payouts/statements

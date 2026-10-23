@@ -13,9 +13,9 @@ This skill is the front door. The detailed guides live in the AgentaOS skills pa
 
 | You are... | Use |
 |------------|-----|
-| An agent running the account from chat or an IDE (create products, links, check payments) | **MCP**: `https://mcp.agentaos.ai/mcp`, approve in the browser, no key. Skill: `mcp-usage` |
-| An agent with a shell and no MCP | **CLI**: `npm install -g agentaos`, `agenta login`, then `agenta ... --json`. Skill: `cli-usage` |
-| Writing the user's app code (paywall, webhook) | **SDK**: `npm install @agentaos/pay`, key `sk_test_...` on the server. Skills: `agentaos-best-practices`, `checkout-integration`, `webhook-integration` |
+| An agent running the account from chat or an IDE (create products, links, check payments) | **MCP**: `https://mcp.agentaos.ai/mcp`, approve in the browser, no key. Skill: `agentaos-mcp-usage` |
+| An agent with a shell and no MCP | **CLI**: `npm install -g agentaos`, `agenta login`, then `agenta ... --json`. Skill: `agentaos-cli-usage` |
+| Writing the user's app code (paywall, webhook) | **SDK**: `npm install @agentaos/pay`, key `sk_test_...` on the server. Skills: `agentaos-best-practices`, `agentaos-checkout-integration`, `agentaos-webhook-integration` |
 
 When the user says "use agenta", use the `agenta_*` MCP tools if connected, otherwise the `agenta` CLI.
 
@@ -73,16 +73,16 @@ const checkout = await agentaos.checkouts.create({
 | Skill | Covers |
 |-------|--------|
 | `agentaos-best-practices` | Orientation, keys, money model, rate limits, idempotency, errors |
-| `checkout-integration` | Products, buyer links, server checkouts, embedded checkout |
-| `subscription-integration` | Plans, trials, status gating, plan changes, cancel, credits |
-| `webhook-integration` | Signature verification, all events, dedupe, retries |
-| `nextjs-integration` | App Router route handlers and server actions |
-| `better-auth-integration` | `@agentaos/better-auth` plugin |
-| `mcp-usage` | Hosted and local MCP server, 31 tools, safety rules |
-| `cli-usage` | `agenta` CLI commands and `--json` output |
-| `testing-and-go-live` | Test cards, test webhooks, go-live checklist |
-| `refunds-and-disputes` | Refund requests, chargebacks, dispute events |
-| `migrate-from-stripe-paddle-lemonsqueezy` | Moving from Stripe, Paddle, Lemon Squeezy, Creem, Gumroad |
+| `agentaos-checkout-integration` | Products, buyer links, server checkouts, embedded checkout |
+| `agentaos-subscription-integration` | Plans, trials, status gating, plan changes, cancel, credits |
+| `agentaos-webhook-integration` | Signature verification, all events, dedupe, retries |
+| `agentaos-nextjs-integration` | App Router route handlers and server actions |
+| `agentaos-better-auth-integration` | `@agentaos/better-auth` plugin |
+| `agentaos-mcp-usage` | Hosted and local MCP server, 31 tools, safety rules |
+| `agentaos-cli-usage` | `agenta` CLI commands and `--json` output |
+| `agentaos-testing-and-go-live` | Test cards, test webhooks, go-live checklist |
+| `agentaos-refunds-and-disputes` | Refund requests, chargebacks, dispute events |
+| `agentaos-migrate-from-stripe-paddle-lemonsqueezy` | Moving from Stripe, Paddle, Lemon Squeezy, Creem, Gumroad |
 
 ## Docs
 

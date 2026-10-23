@@ -1,5 +1,5 @@
 ---
-name: testing-and-go-live
+name: agentaos-testing-and-go-live
 description: AgentaOS test mode and production launch, covering sk_test_ vs sk_live_ keys, the dashboard Test/Live switch, test cards (4242 success, 0002 decline, 9995 insufficient funds, 3155 3D Secure, 0259 dispute), test invoices, receipts and emails, test webhooks and the livemode field, tunnels for local webhooks, embedding on localhost, business verification, Copy to live for products, live buyer links, deploying the live key, and a pre-launch checklist. Use when testing payment flows end to end, simulating declines or disputes, preparing to accept real money, or debugging why live payments do not work.
 ---
 

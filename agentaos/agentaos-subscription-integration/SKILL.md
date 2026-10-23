@@ -1,6 +1,6 @@
 ---
-name: subscription-integration
-description: AgentaOS subscriptions, covering subscription products (type subscription, billingInterval month or year, trialPeriodDays), how a subscription is created by the buyer at checkout (no create endpoint), linking it to your user via metadata.subscriptionId, statuses (trialing, active, past_due, unpaid, canceled and more), access gating, free and paid trials, upgrade and downgrade with plan-change preview and prorationDate, cancel at period end and resume, subscriber credits, per-subscription invoices, and renewal webhooks. Use when selling a monthly or yearly plan, building a paywall, handling trials, renewals or failed payments, or adding cancel and upgrade buttons; use checkout-integration to start the purchase.
+name: agentaos-subscription-integration
+description: AgentaOS subscriptions, covering subscription products (type subscription, billingInterval month or year, trialPeriodDays), how a subscription is created by the buyer at checkout (no create endpoint), linking it to your user via metadata.subscriptionId, statuses (trialing, active, past_due, unpaid, canceled and more), access gating, free and paid trials, upgrade and downgrade with plan-change preview and prorationDate, cancel at period end and resume, subscriber credits, per-subscription invoices, and renewal webhooks. Use when selling a monthly or yearly plan, building a paywall, handling trials, renewals or failed payments, or adding cancel and upgrade buttons; use agentaos-checkout-integration to start the purchase.
 ---
 
 # AgentaOS Subscription Integration
@@ -103,7 +103,7 @@ Do not send logged-in users the plan's `/pay/` buyer link: it carries no `metada
 
 ## Step 3: Store the subscription id
 
-From the webhook (preferred; see `webhook-integration`):
+From the webhook (preferred; see `agentaos-webhook-integration`):
 
 ```typescript
 if (event.type === 'checkout.session.completed') {
@@ -306,7 +306,7 @@ Check the invoice belongs to the signed-in user's subscription before streaming 
 | Applying a plan change without a quote | Preview, show the amounts, apply with `prorationDate` |
 | Changing between monthly and yearly | Not supported as a plan change; same interval and currency only |
 | Giving credits with an API key | Session only; use the dashboard, CLI or MCP |
-| Promising a refund on cancel | Cancel never refunds; refunds are a separate request (see `refunds-and-disputes`) |
+| Promising a refund on cancel | Cancel never refunds; refunds are a separate request (see `agentaos-refunds-and-disputes`) |
 | Building a "manage billing" link to a hosted portal | There is none; build cancel and upgrade with the API |
 | Mixing units | `unitAmountMinor` is minor units; invoice `amount` is currency units; webhook `amount` is a string |
 

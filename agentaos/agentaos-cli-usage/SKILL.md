@@ -1,5 +1,5 @@
 ---
-name: cli-usage
+name: agentaos-cli-usage
 description: The AgentaOS agenta CLI (npm package agentaos), covering install via curl or npm, device-code browser login (agenta login, session in ~/.agenta, the only human step), agenta status and go-live next steps, --json output for agents and scripts, and every command group (products, pay, subscriptions with change-plan and credits, discounts, customers, invoices and receipts, verify, audit, businesses with --business). Use when running AgentaOS from a terminal, a coding agent without MCP, or a script; when the user says "use agenta"; or when translating an agenta_* MCP tool call to its CLI command.
 ---
 
@@ -7,7 +7,7 @@ description: The AgentaOS agenta CLI (npm package agentaos), covering install vi
 
 The `agenta` CLI ships as the `agentaos` npm package and installs two equivalent binaries: `agenta` and `agentaos`. It runs the same operations as the MCP server against your logged-in account. Use it for one-off invoices, quick tests, support work, and agents that run shell commands.
 
-The CLI authenticates with a browser login session, not an API key. For a backend or a CI job that must use a key, use `@agentaos/pay` or the REST API with `sk_test_` / `sk_live_` (see `agentaos-best-practices`), or the local MCP server (see `mcp-usage`).
+The CLI authenticates with a browser login session, not an API key. For a backend or a CI job that must use a key, use `@agentaos/pay` or the REST API with `sk_test_` / `sk_live_` (see `agentaos-best-practices`), or the local MCP server (see `agentaos-mcp-usage`).
 
 ## When to use this skill
 

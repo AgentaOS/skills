@@ -1,5 +1,5 @@
 ---
-name: migrate-from-stripe-paddle-lemonsqueezy
+name: agentaos-migrate-from-stripe-paddle-lemonsqueezy
 description: Moving payments to AgentaOS from Stripe, Paddle, Lemon Squeezy, Creem or Gumroad, covering the @agentaos/migrate CLI (dry run, apply, --switch-code, summary.md, products.csv, skipped.csv, redirects.csv, subscribers.csv) for Paddle, Lemon Squeezy, Creem and Gumroad, a manual path for Stripe, a concept and code mapping (prices to payment links, Checkout Sessions to /gateway/sessions, Stripe-Signature to X-AgentaOS-Signature, customer portal to your own billing page), what moves and what does not (saved cards never move), subscriber cut-over timed to renewal dates, and swapping buy links in code. Use when the user wants to migrate, switch or move products, plans, discount codes, subscribers or code from another billing provider to AgentaOS.
 ---
 
@@ -143,7 +143,7 @@ for (const p of plans) {
 | `charge.dispute.created` | `dispute.created` |
 | `stripe.subscriptions.update` (price change) | `previewPlanChange` then `changePlan` with `prorationDate` |
 | `stripe.subscriptions.update({ cancel_at_period_end: true })` | `subscriptions.cancel()` |
-| `stripe.refunds.create` | Refund request (full only, reviewed by AgentaOS); see `refunds-and-disputes` |
+| `stripe.refunds.create` | Refund request (full only, reviewed by AgentaOS); see `agentaos-refunds-and-disputes` |
 | Customer Portal | Not available. Build cancel and upgrade into your app |
 | Tax (Stripe Tax) | Handled by AgentaOS as merchant of record |
 | `sk_test_` / `sk_live_` | Same prefixes, AgentaOS keys |
@@ -197,7 +197,7 @@ A discount code cannot take the whole price off (`percentOff` is 1 to 99). The d
 
 ## Going live
 
-Everything works in test mode first. Live money needs the AgentaOS business verified: `agenta status --json` or `agenta_status_get` says what is left. Then re-run Path A step 5 with an `sk_live_` key, or copy test products with **Copy to live** in the dashboard (live copies get new ids and links). See `testing-and-go-live`.
+Everything works in test mode first. Live money needs the AgentaOS business verified: `agenta status --json` or `agenta_status_get` says what is left. Then re-run Path A step 5 with an `sk_live_` key, or copy test products with **Copy to live** in the dashboard (live copies get new ids and links). See `agentaos-testing-and-go-live`.
 
 ## Card transfer
 

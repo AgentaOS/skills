@@ -1,5 +1,5 @@
 ---
-name: mcp-usage
+name: agentaos-mcp-usage
 description: How and when to use the AgentaOS MCP server safely, covering the hosted server at https://mcp.agentaos.ai/mcp with browser OAuth approval (Test or Live chosen at approval, no key pasted) for Claude Code, Cursor, Claude.ai and ChatGPT, the local npx -y agentaos server with AGENTAOS_GATEWAY_KEY for headless agents and CI, the 31 agenta_* tools (status, audit, verification, products, checkouts, subscriptions, credits, discount codes, customers, invoices, businesses), answer format, test-mode safety rules, switching to live, disconnecting, and troubleshooting. Use when connecting an AI agent to an AgentaOS account, choosing which agenta_* tool to call, or debugging a missing or failing MCP connection.
 ---
 
@@ -7,7 +7,7 @@ description: How and when to use the AgentaOS MCP server safely, covering the ho
 
 The AgentaOS MCP server gives an AI agent the same operations as the `agenta` CLI. One catalog backs both, so each tool has a matching command with the same inputs and the same answer. Use it to run the account from chat or from a coding agent: create products and checkouts, check payments, manage subscriptions and discount codes, read customers and invoices, and file verification.
 
-The MCP server operates the account. It does not write your app's integration code; for that, use `@agentaos/pay` (see `checkout-integration`, `webhook-integration`).
+The MCP server operates the account. It does not write your app's integration code; for that, use `@agentaos/pay` (see `agentaos-checkout-integration`, `agentaos-webhook-integration`).
 
 ## When to use this skill
 
@@ -153,7 +153,7 @@ Inputs are camelCase JSON keys (`successUrl`, `trialDays`, `dryRun`). A validati
 
 `agenta_businesses_list`, `agenta_businesses_get`, `agenta_businesses_create`, `agenta_businesses_invite`, `agenta_businesses_revoke_invite`, `agenta_businesses_id_link`. Every tool also takes an optional `business` input (a business id) to act as that business.
 
-Not available as tools: refunds (requested from the sale page in the dashboard; see `refunds-and-disputes`), webhook configuration, API key management, payouts.
+Not available as tools: refunds (requested from the sale page in the dashboard; see `agentaos-refunds-and-disputes`), webhook configuration, API key management, payouts.
 
 ---
 

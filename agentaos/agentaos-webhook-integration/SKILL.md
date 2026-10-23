@@ -1,5 +1,5 @@
 ---
-name: webhook-integration
+name: agentaos-webhook-integration
 description: AgentaOS webhook handling, covering endpoint registration in Settings, Developers, Webhooks, the whsec_ signing secret, X-AgentaOS-Signature (t=,v1= HMAC-SHA256 over the raw body) verification with agentaos.webhooks.verify() from @agentaos/pay or by hand in any language, the 12 event types (checkout.session.completed, subscription.created, renewed, updated, payment_failed, canceled, dispute.created, closed, send.completed, send.failed, account.updated, webhook.test), payload fields, per-event deduplication keys, delivery and retries, livemode checks, and local testing through a tunnel. Use when receiving AgentaOS events, verifying signatures, fulfilling orders, or syncing subscription state.
 ---
 

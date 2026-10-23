@@ -1,6 +1,6 @@
 ---
-name: checkout-integration
-description: AgentaOS checkout integration, covering products as reusable payment links (POST /gateway/payment-links, paymentLinks.create), shared buyer links, server-created checkout sessions (POST /gateway/sessions, checkouts.create) with linkId, metadata, buyer prefill, amountOverride and Idempotency-Key, standalone one-time checkouts, success and cancel URLs, status polling, and the embedded inline or overlay checkout (@agentaos/checkout, agentaos.js). Use when building a Buy button, pricing page, paywall checkout, one-off invoice payment, or embedding the checkout on your own page; use subscription-integration for what happens after a plan is bought.
+name: agentaos-checkout-integration
+description: AgentaOS checkout integration, covering products as reusable payment links (POST /gateway/payment-links, paymentLinks.create), shared buyer links, server-created checkout sessions (POST /gateway/sessions, checkouts.create) with linkId, metadata, buyer prefill, amountOverride and Idempotency-Key, standalone one-time checkouts, success and cancel URLs, status polling, and the embedded inline or overlay checkout (@agentaos/checkout, agentaos.js). Use when building a Buy button, pricing page, paywall checkout, one-off invoice payment, or embedding the checkout on your own page; use agentaos-subscription-integration for what happens after a plan is bought.
 ---
 
 # AgentaOS Checkout Integration
@@ -196,7 +196,7 @@ curl -X POST https://api.agentaos.ai/api/v1/gateway/sessions \
 
 ## Step 3: Confirm payment
 
-Prefer the webhook (see `webhook-integration`). Polling works as a fallback and on the success page:
+Prefer the webhook (see `agentaos-webhook-integration`). Polling works as a fallback and on the success page:
 
 ```typescript
 // /thanks?sessionId=...

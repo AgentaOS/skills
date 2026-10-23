@@ -16,8 +16,8 @@ Or one skill:
 
 ```bash
 npx skills add AgentaOS/skills --skill agentaos-best-practices
-npx skills add AgentaOS/skills --skill webhook-integration
-npx skills add AgentaOS/skills --skill subscription-integration checkout-integration
+npx skills add AgentaOS/skills --skill agentaos-webhook-integration
+npx skills add AgentaOS/skills --skill agentaos-subscription-integration agentaos-checkout-integration
 ```
 
 ### Claude Code
@@ -32,8 +32,8 @@ Install the whole pack, or single skills:
 
 ```text
 /plugin install agentaos-pack@agentaos-skills
-/plugin install checkout-integration@agentaos-skills
-/plugin install webhook-integration@agentaos-skills
+/plugin install agentaos-checkout-integration@agentaos-skills
+/plugin install agentaos-webhook-integration@agentaos-skills
 ```
 
 Install either `agentaos-pack` or individual skills, not both.
@@ -43,16 +43,16 @@ On Claude Code 2.1.275 or later, one line adds the marketplace and installs a pl
 ```text
 /plugin install agentaos-pack --marketplace AgentaOS/skills
 /plugin install agentaos-best-practices --marketplace AgentaOS/skills
-/plugin install checkout-integration --marketplace AgentaOS/skills
-/plugin install subscription-integration --marketplace AgentaOS/skills
-/plugin install webhook-integration --marketplace AgentaOS/skills
-/plugin install nextjs-integration --marketplace AgentaOS/skills
-/plugin install better-auth-integration --marketplace AgentaOS/skills
-/plugin install mcp-usage --marketplace AgentaOS/skills
-/plugin install cli-usage --marketplace AgentaOS/skills
-/plugin install testing-and-go-live --marketplace AgentaOS/skills
-/plugin install refunds-and-disputes --marketplace AgentaOS/skills
-/plugin install migrate-from-stripe-paddle-lemonsqueezy --marketplace AgentaOS/skills
+/plugin install agentaos-checkout-integration --marketplace AgentaOS/skills
+/plugin install agentaos-subscription-integration --marketplace AgentaOS/skills
+/plugin install agentaos-webhook-integration --marketplace AgentaOS/skills
+/plugin install agentaos-nextjs-integration --marketplace AgentaOS/skills
+/plugin install agentaos-better-auth-integration --marketplace AgentaOS/skills
+/plugin install agentaos-mcp-usage --marketplace AgentaOS/skills
+/plugin install agentaos-cli-usage --marketplace AgentaOS/skills
+/plugin install agentaos-testing-and-go-live --marketplace AgentaOS/skills
+/plugin install agentaos-refunds-and-disputes --marketplace AgentaOS/skills
+/plugin install agentaos-migrate-from-stripe-paddle-lemonsqueezy --marketplace AgentaOS/skills
 /plugin install agenta --marketplace AgentaOS/skills
 ```
 
@@ -68,8 +68,8 @@ claude plugins install agentaos@agentaos
 Pull a skill folder into your project:
 
 ```bash
-npx degit AgentaOS/skills/agentaos/checkout-integration .cursor/skills/checkout-integration
-npx degit AgentaOS/skills/agentaos/webhook-integration .cursor/skills/webhook-integration
+npx degit AgentaOS/skills/agentaos/agentaos-checkout-integration .cursor/skills/agentaos-checkout-integration
+npx degit AgentaOS/skills/agentaos/agentaos-webhook-integration .cursor/skills/agentaos-webhook-integration
 ```
 
 Or the whole pack:
@@ -81,7 +81,7 @@ npx degit AgentaOS/skills/agentaos .cursor/skills/agentaos
 Then reference it in the chat:
 
 ```text
-@.cursor/skills/checkout-integration/SKILL.md Add a Pro plan checkout for logged-in users
+@.cursor/skills/agentaos-checkout-integration/SKILL.md Add a Pro plan checkout for logged-in users
 ```
 
 For Windsurf, Codex and other agents, copy the folder wherever your tool reads rules or skills, and reference the `SKILL.md` file.
@@ -93,32 +93,32 @@ For Windsurf, Codex and other agents, copy the folder wherever your tool reads r
 | Skill | Description |
 |-------|-------------|
 | [agentaos-best-practices](./agentaos/agentaos-best-practices/) | Orientation: core objects, API keys, test vs live, SDK setup, money model, rate limits, idempotency, errors |
-| [testing-and-go-live](./agentaos/testing-and-go-live/) | Test cards, test webhooks, verification, Copy to live, launch checklist |
+| [agentaos-testing-and-go-live](./agentaos/agentaos-testing-and-go-live/) | Test cards, test webhooks, verification, Copy to live, launch checklist |
 | [agenta](./agenta/) | Front door: 30-second setup on MCP, CLI or SDK, and routing to the skills below |
 
 ### Accepting payments
 
 | Skill | Description |
 |-------|-------------|
-| [checkout-integration](./agentaos/checkout-integration/) | Products (payment links), buyer links, server-created checkouts, embedded checkout |
-| [subscription-integration](./agentaos/subscription-integration/) | Plans, trials, status gating, plan changes, cancel and resume, credits |
-| [webhook-integration](./agentaos/webhook-integration/) | X-AgentaOS-Signature verification, all event types, dedupe, retries |
-| [refunds-and-disputes](./agentaos/refunds-and-disputes/) | Refund requests, chargebacks, dispute events |
+| [agentaos-checkout-integration](./agentaos/agentaos-checkout-integration/) | Products (payment links), buyer links, server-created checkouts, embedded checkout |
+| [agentaos-subscription-integration](./agentaos/agentaos-subscription-integration/) | Plans, trials, status gating, plan changes, cancel and resume, credits |
+| [agentaos-webhook-integration](./agentaos/agentaos-webhook-integration/) | X-AgentaOS-Signature verification, all event types, dedupe, retries |
+| [agentaos-refunds-and-disputes](./agentaos/agentaos-refunds-and-disputes/) | Refund requests, chargebacks, dispute events |
 
 ### Frameworks
 
 | Skill | Description |
 |-------|-------------|
-| [nextjs-integration](./agentaos/nextjs-integration/) | Next.js App Router route handlers, server actions, webhook route |
-| [better-auth-integration](./agentaos/better-auth-integration/) | The `@agentaos/better-auth` plugin |
+| [agentaos-nextjs-integration](./agentaos/agentaos-nextjs-integration/) | Next.js App Router route handlers, server actions, webhook route |
+| [agentaos-better-auth-integration](./agentaos/agentaos-better-auth-integration/) | The `@agentaos/better-auth` plugin |
 
 ### Agents and tooling
 
 | Skill | Description |
 |-------|-------------|
-| [mcp-usage](./agentaos/mcp-usage/) | Hosted and local MCP server, the 31 `agenta_*` tools, safety rules |
-| [cli-usage](./agentaos/cli-usage/) | The `agenta` CLI, login, `--json` output, every command |
-| [migrate-from-stripe-paddle-lemonsqueezy](./agentaos/migrate-from-stripe-paddle-lemonsqueezy/) | Moving from Stripe, Paddle, Lemon Squeezy, Creem or Gumroad |
+| [agentaos-mcp-usage](./agentaos/agentaos-mcp-usage/) | Hosted and local MCP server, the 31 `agenta_*` tools, safety rules |
+| [agentaos-cli-usage](./agentaos/agentaos-cli-usage/) | The `agenta` CLI, login, `--json` output, every command |
+| [agentaos-migrate-from-stripe-paddle-lemonsqueezy](./agentaos/agentaos-migrate-from-stripe-paddle-lemonsqueezy/) | Moving from Stripe, Paddle, Lemon Squeezy, Creem or Gumroad |
 
 ## Repository layout
 

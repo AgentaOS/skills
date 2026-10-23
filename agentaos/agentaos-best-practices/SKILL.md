@@ -20,16 +20,16 @@ This skill is the orientation layer. The other skills in this pack go deep on on
 
 | Task | Skill |
 |------|-------|
-| Buy button, hosted or embedded checkout, one-off payment | `checkout-integration` |
-| Monthly or yearly plans, trials, plan changes, cancel, credits | `subscription-integration` |
-| Receiving and verifying events, fulfillment, idempotency | `webhook-integration` |
-| Next.js App Router route handlers | `nextjs-integration` |
-| App that signs users in with Better Auth | `better-auth-integration` |
-| Letting an AI agent run the account over MCP | `mcp-usage` |
-| Terminal, scripts, CI with the `agenta` CLI | `cli-usage` |
-| Test cards, test mode, go-live checklist | `testing-and-go-live` |
-| Refund requests, chargebacks, dispute events | `refunds-and-disputes` |
-| Moving from Stripe, Paddle, Lemon Squeezy, Creem or Gumroad | `migrate-from-stripe-paddle-lemonsqueezy` |
+| Buy button, hosted or embedded checkout, one-off payment | `agentaos-checkout-integration` |
+| Monthly or yearly plans, trials, plan changes, cancel, credits | `agentaos-subscription-integration` |
+| Receiving and verifying events, fulfillment, idempotency | `agentaos-webhook-integration` |
+| Next.js App Router route handlers | `agentaos-nextjs-integration` |
+| App that signs users in with Better Auth | `agentaos-better-auth-integration` |
+| Letting an AI agent run the account over MCP | `agentaos-mcp-usage` |
+| Terminal, scripts, CI with the `agenta` CLI | `agentaos-cli-usage` |
+| Test cards, test mode, go-live checklist | `agentaos-testing-and-go-live` |
+| Refund requests, chargebacks, dispute events | `agentaos-refunds-and-disputes` |
+| Moving from Stripe, Paddle, Lemon Squeezy, Creem or Gumroad | `agentaos-migrate-from-stripe-paddle-lemonsqueezy` |
 
 ---
 

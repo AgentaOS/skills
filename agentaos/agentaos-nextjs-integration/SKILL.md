@@ -1,5 +1,5 @@
 ---
-name: nextjs-integration
+name: agentaos-nextjs-integration
 description: AgentaOS in Next.js App Router with @agentaos/pay, covering a server-only client module, a checkout route handler and server action that create a checkout from a product linkId with the signed-in user's id in metadata, a success page that confirms with checkouts.retrieve, a webhook route handler that reads the raw body with req.text() and verifies X-AgentaOS-Signature with agentaos.webhooks.verify(), the Node.js runtime requirement, env vars, cancel and plan-change server actions, and the embedded checkout React component. Use when adding AgentaOS payments, a paywall, subscriptions or webhooks to a Next.js 13+ app with the app/ directory.
 ---
 
@@ -15,7 +15,7 @@ There is no AgentaOS-specific Next.js adapter. Use `@agentaos/pay` directly insi
 - Adding cancel and upgrade actions to a billing page
 - Embedding the checkout in a client component
 
-For concepts (products vs checkouts, ids, money model) see `agentaos-best-practices`. For event details see `webhook-integration`.
+For concepts (products vs checkouts, ids, money model) see `agentaos-best-practices`. For event details see `agentaos-webhook-integration`.
 
 ---
 
