@@ -1,0 +1,140 @@
+{
+  "name": "agentaos-skills",
+  "owner": {
+    "name": "AgentaOS",
+    "url": "https://agentaos.ai"
+  },
+  "metadata": {
+    "description": "Agent skills for AgentaOS: merchant-of-record billing with products, checkout, subscriptions, webhooks, invoices and tax. For Claude Code, Cursor, Codex and Windsurf.",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "agentaos-pack",
+      "description": "All AgentaOS skills in one install: best practices, checkout, subscriptions, webhooks, Next.js, Better Auth, MCP, CLI, testing and go-live, refunds and disputes, and migration. Use when you want the full AgentaOS skill set; otherwise install single skills.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-best-practices",
+        "./agentaos/agentaos-checkout-integration",
+        "./agentaos/agentaos-subscription-integration",
+        "./agentaos/agentaos-webhook-integration",
+        "./agentaos/agentaos-nextjs-integration",
+        "./agentaos/agentaos-better-auth-integration",
+        "./agentaos/agentaos-mcp-usage",
+        "./agentaos/agentaos-cli-usage",
+        "./agentaos/agentaos-testing-and-go-live",
+        "./agentaos/agentaos-refunds-and-disputes",
+        "./agentaos/agentaos-migrate-from-stripe-paddle-lemonsqueezy"
+      ]
+    },
+    {
+      "name": "agentaos-best-practices",
+      "description": "Starting point for any AgentaOS integration, covering what a merchant of record does, the four core objects (product or payment link, checkout, subscription, webhook event), API keys and test vs live mode, the @agentaos/pay SDK, the REST base URL and x-api-key auth, the money model, rate limits, idempotency, and the canonical product to checkout to webhook flow. Use when starting a new AgentaOS integration, initializing the AgentaOS client, choosing between a shared buyer link and a server-created checkout, or unsure which AgentaOS skill applies.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-best-practices"
+      ]
+    },
+    {
+      "name": "agentaos-checkout-integration",
+      "description": "AgentaOS checkout integration, covering products as reusable payment links (POST /gateway/payment-links, paymentLinks.create), shared buyer links, server-created checkout sessions (POST /gateway/sessions, checkouts.create) with linkId, metadata, buyer prefill, amountOverride and Idempotency-Key, standalone one-time checkouts, success and cancel URLs, status polling, and the embedded inline or overlay checkout (@agentaos/checkout, agentaos.js). Use when building a Buy button, pricing page, paywall checkout, one-off invoice payment, or embedding the checkout on your own page; use agentaos-subscription-integration for what happens after a plan is bought.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-checkout-integration"
+      ]
+    },
+    {
+      "name": "agentaos-subscription-integration",
+      "description": "AgentaOS subscriptions, covering subscription products (type subscription, billingInterval month or year, trialPeriodDays), how a subscription is created by the buyer at checkout (no create endpoint), linking it to your user via metadata.subscriptionId, statuses (trialing, active, past_due, unpaid, canceled and more), access gating, free and paid trials, upgrade and downgrade with plan-change preview and prorationDate, cancel at period end and resume, subscriber credits, per-subscription invoices, and renewal webhooks. Use when selling a monthly or yearly plan, building a paywall, handling trials, renewals or failed payments, or adding cancel and upgrade buttons; use agentaos-checkout-integration to start the purchase.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-subscription-integration"
+      ]
+    },
+    {
+      "name": "agentaos-webhook-integration",
+      "description": "AgentaOS webhook handling, covering endpoint registration in Settings, Developers, Webhooks, the whsec_ signing secret, X-AgentaOS-Signature (t=,v1= HMAC-SHA256 over the raw body) verification with agentaos.webhooks.verify() from @agentaos/pay or by hand in any language, the 12 event types (checkout.session.completed, subscription.created, renewed, updated, payment_failed, canceled, dispute.created, closed, send.completed, send.failed, account.updated, webhook.test), payload fields, per-event deduplication keys, delivery and retries, livemode checks, and local testing through a tunnel. Use when receiving AgentaOS events, verifying signatures, fulfilling orders, or syncing subscription state.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-webhook-integration"
+      ]
+    },
+    {
+      "name": "agentaos-nextjs-integration",
+      "description": "AgentaOS in Next.js App Router with @agentaos/pay, covering a server-only client module, a checkout route handler and server action that create a checkout from a product linkId with the signed-in user's id in metadata, a success page that confirms with checkouts.retrieve, a webhook route handler that reads the raw body with req.text() and verifies X-AgentaOS-Signature with agentaos.webhooks.verify(), the Node.js runtime requirement, env vars, cancel and plan-change server actions, and the embedded checkout React component. Use when adding AgentaOS payments, a paywall, subscriptions or webhooks to a Next.js 13+ app with the app/ directory.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-nextjs-integration"
+      ]
+    },
+    {
+      "name": "agentaos-better-auth-integration",
+      "description": "AgentaOS plugin for Better Auth (@agentaos/better-auth) covering the agentaos() server plugin with an @agentaos/pay client, the products slug-to-linkId allowlist, successUrl, webhookSecret and onEvent, the agentaosClient() browser plugin, authClient.agentaos.checkout({ slug }), the three endpoints it mounts (POST /api/auth/agentaos/checkout, GET /api/auth/agentaos/subscriptions, POST /api/auth/agentaos/webhook), and idempotent, livemode-aware event handling. Use when an app signs users in with Better Auth and needs AgentaOS checkout, subscriptions or webhooks tied to the signed-in user; for other auth stacks use agentaos-checkout-integration and agentaos-webhook-integration.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-better-auth-integration"
+      ]
+    },
+    {
+      "name": "agentaos-mcp-usage",
+      "description": "How and when to use the AgentaOS MCP server safely, covering the hosted server at https://mcp.agentaos.ai/mcp with browser OAuth approval (Test or Live chosen at approval, no key pasted) for Claude Code, Cursor, Claude.ai and ChatGPT, the local npx -y agentaos server with AGENTAOS_GATEWAY_KEY for headless agents and CI, the 31 agenta_* tools (status, audit, verification, products, checkouts, subscriptions, credits, discount codes, customers, invoices, businesses), answer format, test-mode safety rules, switching to live, disconnecting, and troubleshooting. Use when connecting an AI agent to an AgentaOS account, choosing which agenta_* tool to call, or debugging a missing or failing MCP connection.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-mcp-usage"
+      ]
+    },
+    {
+      "name": "agentaos-cli-usage",
+      "description": "The AgentaOS agenta CLI (npm package agentaos), covering install via curl or npm, device-code browser login (agenta login, session in ~/.agenta, the only human step), agenta status and go-live next steps, --json output for agents and scripts, and every command group (products, pay, subscriptions with change-plan and credits, discounts, customers, invoices and receipts, verify, audit, businesses with --business). Use when running AgentaOS from a terminal, a coding agent without MCP, or a script; when the user says \"use agenta\"; or when translating an agenta_* MCP tool call to its CLI command.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-cli-usage"
+      ]
+    },
+    {
+      "name": "agentaos-testing-and-go-live",
+      "description": "AgentaOS test mode and production launch, covering sk_test_ vs sk_live_ keys, the dashboard Test/Live switch, test cards (4242 success, 0002 decline, 9995 insufficient funds, 3155 3D Secure, 0259 dispute), test invoices, receipts and emails, test webhooks and the livemode field, tunnels for local webhooks, embedding on localhost, business verification, Copy to live for products, live buyer links, deploying the live key, and a pre-launch checklist. Use when testing payment flows end to end, simulating declines or disputes, preparing to accept real money, or debugging why live payments do not work.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-testing-and-go-live"
+      ]
+    },
+    {
+      "name": "agentaos-refunds-and-disputes",
+      "description": "AgentaOS refunds and disputes as merchant of record, covering how a merchant requests a refund (Request refund on the sale page, or POST /gateway/transactions/{id}/refund-request), approval or decline by AgentaOS, full refunds only (no partial refunds), balance effects, the dispute and chargeback lifecycle, dispute.created and dispute.closed webhooks (no event for a lost dispute), sending evidence by replying to the dispute email, the reserve, what is not a refund (cancel, credits, void), and how to avoid disputes. Use when a buyer asks for money back, when handling dispute webhooks, revoking or restoring access after a chargeback, or explaining refund and dispute costs.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-refunds-and-disputes"
+      ]
+    },
+    {
+      "name": "agentaos-migrate-from-stripe-paddle-lemonsqueezy",
+      "description": "Moving payments to AgentaOS from Stripe, Paddle, Lemon Squeezy, Creem or Gumroad, covering the @agentaos/migrate CLI (dry run, apply, --switch-code, summary.md, products.csv, skipped.csv, redirects.csv, subscribers.csv) for Paddle, Lemon Squeezy, Creem and Gumroad, a manual path for Stripe, a concept and code mapping (prices to payment links, Checkout Sessions to /gateway/sessions, Stripe-Signature to X-AgentaOS-Signature, customer portal to your own billing page), what moves and what does not (saved cards never move), subscriber cut-over timed to renewal dates, and swapping buy links in code. Use when the user wants to migrate, switch or move products, plans, discount codes, subscribers or code from another billing provider to AgentaOS.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agentaos/agentaos-migrate-from-stripe-paddle-lemonsqueezy"
+      ]
+    },
+    {
+      "name": "agenta",
+      "description": "Entry point for AgentaOS, the merchant-of-record billing platform for products, checkouts, subscriptions, invoices and tax. Gives the 30-second setup (MCP connector, agenta CLI, or @agentaos/pay SDK), the facts agents get wrong, and routes to the focused skills in the AgentaOS skills pack. Use when the user mentions agenta or AgentaOS, wants to add payments, a paywall, a buy button, a checkout or payment link, a subscription plan, or says \"use agenta\", and no more specific AgentaOS skill is installed or obvious.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./agenta"
+      ]
+    }
+  ]
+}
